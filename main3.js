@@ -1,10 +1,16 @@
-function calculateAverage(arr) {
-    const numbers = arr.filter(element => typeof element === 'number');
-    if (numbers.length === 0) return 0;
-    const sum = numbers.reduce((acc, num) => acc + num, 0);
-    return sum / numbers.length;
+// Знаходимо індекс елемента item у масиві array
+// Якщо елемент знайдено (індекс не дорівнює -1)
+// Видаляємо елемент за допомогою splice
+function removeElement(array, item) {
+ const index = array.indexOf(item)
+ if (index > -1) {
+  array.splice(index, 1)
+ }
 }
+const newArray = [1, 3, 4, 5, 67, 8]
+removeElement(newArray, 3)
+console.log(newArray)
 
-const newArr = [1, 'hi', 3, true, 5, null, '7', undefined, 6];
-const average = calculateAverage(newArr);
-console.log(average);
+
+
+//виводимо
