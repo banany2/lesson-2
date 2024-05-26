@@ -1,9 +1,10 @@
-let userNum = prompt("Enter number:");
-let a, b;
-go:
-    for (a = 2; a <= userNum; a++) {
-        for (b = 2; b < a; b++) {
-            if (a%b === 0) continue go;
-        }
-        console.log(a)
-    }
+function calculateAverage(arr) {
+    const numbers = arr.filter(element => typeof element === 'number');
+    if (numbers.length === 0) return 0;
+    const sum = numbers.reduce((acc, num) => acc + num, 0);
+    return sum / numbers.length;
+}
+
+const newArr = [1, 'hi', 3, true, 5, null, '7', undefined, 6];
+const average = calculateAverage(newArr);
+console.log(average);
