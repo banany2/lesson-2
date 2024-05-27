@@ -1,16 +1,13 @@
-// Знаходимо індекс елемента item у масиві array
-// Якщо елемент знайдено (індекс не дорівнює -1)
-// Видаляємо елемент за допомогою splice
-function removeElement(array, item) {
- const index = array.indexOf(item)
- if (index > -1) {
-  array.splice(index, 1)
+function removeLetters(str, charsToRemove) {
+ let result = "";
+ for (let i = 0; i < str.length; i++) {
+  if (!charsToRemove.includes(str[i])) {
+   result += str[i];
+  }
  }
+ return result;
 }
-const newArray = [1, 3, 4, 5, 67, 8]
-removeElement(newArray, 3)
-console.log(newArray)
-
-
-
-//виводимо
+const inputString = prompt("Enter the string:");
+const lettersToRemove = prompt("Enter the characters to remove (e.g., 'ld'):").split('');
+const resultString = removeLetters(inputString, lettersToRemove);
+console.log("Result:", resultString);
