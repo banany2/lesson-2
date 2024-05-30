@@ -1,11 +1,18 @@
-function add(x, y) {
-    return x + y;
-}
+function mainFunction() {
+    for (let i = 0; i <= 10; i++) {
+        let userInput = prompt("Enter a num bigger 100")
 
-function curryAdd(x) {
-    return function(y) {
-        return x * y;
-    }
+        if (userInput === null || isNaN(userInput)) {
+            console.log("Please, enter a number");
+            break;
+        }
+        else if (userInput > 100) {
+            console.log(userInput)
+            break;
+            }
+        else {
+            console.log("You entered a number less than 100. Try again.")
+        }
+        }
 }
-const addFive = curryAdd;
-console.log(addFive(5)(2));
+mainFunction();
