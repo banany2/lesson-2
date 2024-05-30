@@ -1,14 +1,11 @@
-function createCounter(count) {
-    count = 0
-    return function(num) {
-        count += num;
-        console.log(count)
-    }
+function add(x, y) {
+    return x + y;
 }
 
-const sum = createCounter();
-console.log(sum(2))
-console.log(sum(3))
-console.log(sum(6))
-
-
+function curryAdd(x) {
+    return function(y) {
+        return x * y;
+    }
+}
+const addFive = curryAdd;
+console.log(addFive(5)(2));
