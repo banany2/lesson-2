@@ -1,25 +1,19 @@
-let company = {
-    sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 600}],
-    development: {
-        web: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800}],
-        internals: [{name: 'Jack', salary: 1300}]
+let obj = {
+    name: 'Dima',
+    age: 17,
+    location: 'Odessa',
+    getInfo: function() {
+        console.log(`name: ${this.name}`)
+        console.log(`age: ${this.age}`)
+        console.log(`location: ${this.location}`)
+    },
+    UpdateInfo: function(newName, newAge, newLocation) {
+        this.name = newName;
+        this.age = newAge;
+        this.location = newLocation;
     }
 }
-function calcTotalSalary(sum) {
-    let totalSalary = 0
-    if (Array.isArray(sum)) {
-        for(let i = 0; i < sum.length; i++) {
-            totalSalary += sum[i].salary;
-        }
-    }
-    else {
-        for (let s in sum) {
-            totalSalary += calcTotalSalary(sum[s])
-        }
-    }
 
-    return totalSalary
-}
-
-const totalSalary = calcTotalSalary(company)
-console.log(totalSalary)
+obj.getInfo()
+obj.UpdateInfo('Kirill', 22, 'Kyiv')
+obj.getInfo()
