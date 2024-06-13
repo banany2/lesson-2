@@ -1,19 +1,5 @@
-let obj = {
-    name: 'Dima',
-    age: 17,
-    location: 'Odessa',
-    getInfo: function() {
-        console.log(`name: ${this.name}`)
-        console.log(`age: ${this.age}`)
-        console.log(`location: ${this.location}`)
-    },
-    UpdateInfo: function(newName, newAge, newLocation) {
-        this.name = newName;
-        this.age = newAge;
-        this.location = newLocation;
-    }
-}
+let newArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-obj.getInfo()
-obj.UpdateInfo('Kirill', 22, 'Kyiv')
-obj.getInfo()
+const evenNums = newArr.filter(nums=>nums % 2 === 0)
+
+console.log(evenNums)
