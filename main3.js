@@ -1,18 +1,7 @@
-const tableContainer = document.getElementById('container');
-const table = document.createElement('table');
-const tbody = document.createElement('tbody');
+const images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg'];
+const randomIndex = Math.floor(Math.random() * images.length);
+const randomPath = images[randomIndex]
 
-for (let i = 1; i <= 10; i++) {
-    const row = document.createElement('tr');
+const randomImg = document.getElementById('random-img');
 
-    for (let j = 1; j <= 10; j++) {
-        const cell = document.createElement('td');
-        cell.textContent = i * j;
-        row.appendChild(cell);
-    }
-
-    tbody.appendChild(row);
-}
-table.appendChild(tbody);
-tableContainer.appendChild(table);
-
+randomImg.setAttribute('src', randomPath);
