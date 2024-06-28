@@ -1,7 +1,18 @@
-const images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg'];
-const randomIndex = Math.floor(Math.random() * images.length);
-const randomPath = images[randomIndex]
+let btn1 = document.getElementById('btn1')
+let btn2 = document.getElementById('btn2')
 
-const randomImg = document.getElementById('random-img');
+btn1.addEventListener('click', function() {
+    let newLink = prompt('Enter a new link')
+    if (newLink) {
+        newLinkSaved = newLink;
+        alert('The link is saved');
+    }
+})
 
-randomImg.setAttribute('src', randomPath);
+btn2.addEventListener('click', function() {
+    if(newLinkSaved) {
+        window.open(newLinkSaved)
+    } else {
+        alert('Enter a link.')
+    }
+})
