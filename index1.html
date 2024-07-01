@@ -9,25 +9,23 @@
     <title>Document</title>
 </head>
 <body>
-<ul id="task-list">
-    <li>
-        <span>Завдання 1</span>
-        <button>Видалити</button>
-    </li>
-    <li>
-        <span>Завдання 2</span>
-        <button>Видалити</button>
-    </li>
-    <li>
-        <span>Завдання 3</span>
-        <button>Видалити</button>
-    </li>
-</ul>
-
-<div>
-    <input type="text" id="newTaskInput" placeholder="Додати нове завдання" />
-    <button id="add-task">Додати</button>
+<form id="myForm">
+<div class="menu">
+    <h1>We would like to help you</h1>
+    <input type="text" placeholder="Name" id="name">
+    <span id="nameError"></span>
+    <textarea name="" id="textarea" cols="30" rows="10" placeholder="Message"></textarea>
+    <span id="textareaError"></span>
+    <label>HOW TO ANSWER YOU?</label>
+    <input type="text" placeholder="Phone_number" id="phone">
+    <span id="phoneError"></span>
+    <input type="text" placeholder="Email" name="user_email" id="email">
+    <span id="messageError"></span>
+    <div class="button-container">
+        <button type="submit">Send message</button>
+    </div>
 </div>
+</form>
 <script src="main3.js"></script>
 </body>
 </html>
