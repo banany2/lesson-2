@@ -1,31 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
     <link rel="stylesheet" href="main.css">
-    <title>Document</title>
 </head>
 <body>
-<form id="myForm">
-<div class="menu">
-    <h1>We would like to help you</h1>
-    <input type="text" placeholder="Name" id="name">
-    <span id="nameError"></span>
-    <textarea name="" id="textarea" cols="30" rows="10" placeholder="Message"></textarea>
-    <span id="textareaError"></span>
-    <label>HOW TO ANSWER YOU?</label>
-    <input type="text" placeholder="Phone_number" id="phone">
-    <span id="phoneError"></span>
-    <input type="text" placeholder="Email" name="user_email" id="email">
-    <span id="messageError"></span>
-    <div class="button-container">
-        <button type="submit">Send message</button>
+<div class="slider-container">
+    <button class="prev">Prev</button>
+    <div class="slider">
+        <img src="1.jpg" class="slide active">
+        <img src="2.jpg" class="slide">
+        <img src="3.jpg" class="slide">
     </div>
+    <button class="next">Next</button>
 </div>
-</form>
+<div class="dots-container">
+</div>
+
 <script src="main3.js"></script>
 </body>
 </html>
