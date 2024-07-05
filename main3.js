@@ -1,51 +1,61 @@
-let currentIndex = 0;
-const slides = document.querySelectorAll('.slide');
-const dotsContainer = document.querySelector('.dots-container');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
+const form = document.querySelector('.js--form');
+const todosWrapper = document.querySelector('.js--todos-wrapper');
+const input = document.querySelector('.js--form__input');
 
-function updateSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-    });
+document.addEventListener('DOMContentLoaded', loadTodos);
 
-    prevButton.style.display = index === 0 ? 'none' : 'block';
-    nextButton.style.display = index === slides.length - 1 ? 'none' : 'block';
-
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-    });
-}
-
-function prevSlide() {
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateSlide(currentIndex);
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const taskText = input.value;
+    if (taskText !== '') {
+        addTodo(taskText);
+        saveTodoToLocalStorage(taskText);
+        input.value = '';
     }
-}
+});
 
-function nextSlide() {
-    if (currentIndex < slides.length - 1) {
-        currentIndex++;
-        updateSlide(currentIndex);
-    }
-}
+function addTodo(text) {
+    const todoItem = document.createElement('li');
+    todoItem.classList.add('todo-item');
 
-function createDots() {
-    slides.forEach((_, index) => {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        dot.addEventListener('click', () => {
-            currentIndex = index;
-            updateSlide(currentIndex);
-        });
-        dotsContainer.appendChild(dot);
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.addEventListener('change', () => {
+        todoItem.classList.toggle('todo-item--checked');
     });
+
+    const description = document.createElement('span');
+    description.classList.add('todo-itemdescription');
+    description.textContent = text;
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('todo-item__delete');
+    deleteBtn.textContent = 'Видалити';
+    deleteBtn.addEventListener('click', () => {
+        todoItem.remove();
+        removeTodoFromLocalStorage(text);
+    });
+
+    todoItem.appendChild(checkbox);
+    todoItem.appendChild(description);
+    todoItem.appendChild(deleteBtn);
+
+    todosWrapper.appendChild(todoItem);
 }
 
-createDots();
-updateSlide(currentIndex);
+function saveTodoToLocalStorage(todo) {
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
+    todos.push(todo);
+    localStorage.setItem('todos', JSON.stringify(todos));
+}
 
-prevButton.addEventListener('click', prevSlide);
-nextButton.addEventListener('click', nextSlide);
+function removeTodoFromLocalStorage(todo) {
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
+    todos = todos.filter(item => item !== todo);
+    localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+function loadTodos() {
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
+    todos.forEach(todo => addTodo(todo));
+}
