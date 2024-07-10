@@ -52,7 +52,6 @@ function createStudent(name, surname, birthYear, grades = []) {
     };
 }
 
-// Приклади використання
 const student1 = createStudent('Іван', 'Іванов', 2000, [95, 85, 92, 88, 90]);
 const student2 = createStudent('Петро', 'Петров', 1999, [80, 75, 78, 82, 85]);
 const student3 = createStudent('Марія', 'Марієнко', 2001, [60, 65, 70, 72, 68]);
