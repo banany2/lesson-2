@@ -1,33 +1,18 @@
-class Calculator {
-    add(num1, num2) {
-        if (!isNaN(num1) && !isNaN(num2)) {
-            return num1 + num2
-        }
+class Coach {
+    constructor(name, specialization, rating) {
+        this.name = name;
+        this.specialization = specialization;
+        this.rating = rating;
     }
-    subtract(num1, num2) {
-        if (!isNaN(num1) && !isNaN(num2)) return num1 - num2
-    }
-    multiply(num1, num2) {
-        if (!isNaN(num1) && !isNaN(num2)) return num1 * num2
-    }
-    divide(num1, num2) {
-        if (!isNaN(num1) && !isNaN(num2)) {
-            if (num2 === 0) {
-                return 'cannot divide by 0'
-            } else {
-                return num1 / num2
-            }
-        }
-        return 'invalid input'
+    displayInfo() {
+        console.log(`"Coach: ${this.name}, Specialization: ${this.specialization}, Rating: ${this.rating}"`);
     }
 }
 
-const calc = new Calculator()
+const coach1 = new Coach('John Doe', 'Fitness', 4.7);
 
-console.log(calc.add(3, 6)); // 8
+const coach2 = new Coach('Alice Smith', 'Yoga', 4.9);
 
-console.log(calc.subtract(10, 4)); // 6
+coach1.displayInfo(); // "Coach: John Doe, Specialization: Fitness, Rating: 4.7"
 
-console.log(calc.multiply(3, 6)); // 18
-
-console.log(calc.divide(8, 2)); // 4
+coach2.displayInfo(); // "Coach: Alice Smith, Specialization: Yoga, Rating: 4.9"
