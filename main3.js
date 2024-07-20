@@ -13,7 +13,7 @@ async function getWeather() {
             document.querySelector('.city-name').innerHTML = data.name
             document.querySelector('.degrees').innerHTML = `${Math.round(data.main.temp)}&deg;C`
             document.querySelector('.weather-description').innerHTML = data.weather[0]['description']
-            document.querySelector('img').innerHTML = imgSrc
+            document.querySelector('.img-src').innerHTML = `<img src="${imgSrc}">`
         })
 
         .catch(function (error) {
